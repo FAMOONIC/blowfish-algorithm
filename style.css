@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.card {
+  animation: liftIn 0.6s ease;
+}
+
+@keyframes liftIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(135deg, #eae8ff, #f3eaff, #e8f1ff);
+  color: #2c3e50;
+  padding: 30px;
+  line-height: 1.7;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #4538a5;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 1.05rem;
+  color: #555;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 850px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: white;
+  padding: 1.9rem;
+  border-radius: 14px;
+  border: 1px solid #dcd7fa;
+  box-shadow: 0 12px 32px rgba(70, 60, 115, 0.12);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(70, 60, 115, 0.18);
+}
+
+.card h2 {
+  font-size: 1.32rem;
+  margin-bottom: 1.1rem;
+  color: #3b2f78;
+}
+
+.info-box p {
+  margin-bottom: 10px;
+  font-size: 0.97rem;
+  background: #f5f3ff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d9d6f7;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 0.75rem;
+  background: #f6f7ff;
+  border: 1px solid #c9c6e9;
+  border-radius: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #6653d9;
+  box-shadow: 0 0 0 2px rgba(102, 83, 217, 0.25);
+  outline: none;
+}
+
+textarea {
+  min-height: 110px;
+}
+
+.btn-group {
+  margin-top: 1.3rem;
+}
+
+.btn {
+  padding: 0.75rem 1.45rem;
+  border-radius: 7px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.25s ease;
+}
+
+.btn.primary {
+  background: #6a5acd;
+  color: white;
+}
+
+.btn.secondary {
+  background: #4f9be8;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+footer p {
+  padding: 10px 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #dedaf7;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  display: inline-block;
+}

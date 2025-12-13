@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blowfish Encrypt & Decrypt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="fade-in">
+    <h1>Blowfish Encryption Tool</h1>
+    <p class="subtitle">Aplikasi Enkripsi & Dekripsi dengan Algoritma Blowfish</p>
+  </header>
+
+  <main class="container fade-in">
+
+    <section class="card">
+      <h2>Enkripsi</h2>
+
+      <label>Kunci</label>
+      <input type="text" id="enc-key"/>
+
+      <label>Plaintext</label>
+      <textarea id="enc-plaintext"></textarea>
+
+      <label>Ciphertext (Hex)</label>
+      <textarea id="enc-ciphertext" readonly></textarea>
+
+      <div class="btn-group">
+        <button class="btn primary" id="encryptBtn">Enkripsi</button>
+        <button class="btn secondary" id="copyToDecrypt">Salin ke Dekripsi</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Dekripsi</h2>
+
+      <label>Kunci</label>
+      <input type="text" id="dec-key"/>
+
+      <label>Ciphertext (Hex)</label>
+      <textarea id="dec-ciphertext"></textarea>
+
+      <label>Plaintext</label>
+      <textarea id="dec-plaintext" readonly></textarea>
+
+      <div class="btn-group">
+        <button class="btn primary" id="decryptBtn">Dekripsi</button>
+      </div>
+    </section>
+
+     <section class="card" >
+      <h2>Informasi Kelompok</h2>
+
+      <div class="info-box">
+        <h2> <strong>Kelompok 2</strong> </h2>
+        <p><strong>Anggota:</strong> Abid Mahmudin <br> Fadli Alhafis ,<br> Sinta Ayu Br sinaga</p>
+        <p><strong>Mata Kuliah:</strong> Kriptografi</p>
+        <p><strong>Algoritma :</strong> Blowfish</p>
+        <p><strong>Dosen Pengampu:</strong> Heni Rachmawati S.T.,M.T.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="fade-in">
+    <p>© kelompok2 2025</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
