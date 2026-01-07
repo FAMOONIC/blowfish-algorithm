@@ -1,73 +1,199 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blowfish Encrypt & Decrypt</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blowfish Encryption Tool</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: #0b0f14;
+  color: #d1d5db;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 28px 20px;
+  text-align: center;
+  border-bottom: 1px solid #1f2937;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #22d3ee;
+}
+
+header p {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.container {
+  flex: 1;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  padding: 22px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: #38bdf8;
+}
+
+label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #9ca3af;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e5e7eb;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #22d3ee;
+  background: transparent;
+  color: #22d3ee;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #22d3ee;
+  color: #020617;
+}
+
+.info {
+  text-align: center;
+  justify-content: center;
+}
+
+footer {
+  margin-top: auto;
+  border-top: 1px solid #1f2937;
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
+
 <body>
+<div class="page">
 
-  <header class="fade-in">
-    <h1>Blowfish Encryption Tool</h1>
-    <p class="subtitle">Aplikasi Enkripsi & Dekripsi dengan Algoritma Blowfish</p>
-  </header>
+<header>
+  <h1>Blowfish Encryption Tool</h1>
+  <p>Cybersecurity Encryption & Decryption Utility</p>
+</header>
 
-  <main class="container fade-in">
+<main class="container">
+  <div class="grid">
 
     <section class="card">
-      <h2>Enkripsi</h2>
-
+      <h2>[ ENCRYPT ]</h2>
       <label>Kunci</label>
-      <input type="text" id="enc-key"/>
-
+      <input type="text" id="enc-key">
       <label>Plaintext</label>
       <textarea id="enc-plaintext"></textarea>
-
-      <label>Ciphertext (Hex)</label>
+      <label>Ciphertext (HEX)</label>
       <textarea id="enc-ciphertext" readonly></textarea>
-
       <div class="btn-group">
-        <button class="btn primary" id="encryptBtn">Enkripsi</button>
-        <button class="btn secondary" id="copyToDecrypt">Salin ke Dekripsi</button>
+        <button class="primary" id="encryptBtn">Encrypt</button>
+        <button id="copyToDecrypt">Copy</button>
       </div>
+    </section>
+
+    <section class="card info">
+      <h2>[ INFO ]</h2>
+      <p><strong>Kelompok 2</strong></p>
+      <p>Abid Mahmudin<br>Fadli Alhafis<br>Sinta Ayu Br Sinaga</p>
+      <p>Cryptography<br>Blowfish Algorithm</p>
+      <p>Heni Rachmawati S.T., M.T.</p>
     </section>
 
     <section class="card">
-      <h2>Dekripsi</h2>
-
+      <h2>[ DECRYPT ]</h2>
       <label>Kunci</label>
-      <input type="text" id="dec-key"/>
-
-      <label>Ciphertext (Hex)</label>
+      <input type="text" id="dec-key">
+      <label>Ciphertext (HEX)</label>
       <textarea id="dec-ciphertext"></textarea>
-
       <label>Plaintext</label>
       <textarea id="dec-plaintext" readonly></textarea>
-
-      <div class="btn-group">
-        <button class="btn primary" id="decryptBtn">Dekripsi</button>
-      </div>
+      <button class="primary" id="decryptBtn">Decrypt</button>
     </section>
 
-     <section class="card" >
-      <h2>Informasi Kelompok</h2>
+  </div>
+</main>
 
-      <div class="info-box">
-        <h2> <strong>Kelompok 2</strong> </h2>
-        <p><strong>Anggota:</strong> Abid Mahmudin <br> Fadli Alhafis <br> Sinta Ayu Br sinaga</p>
-        <p><strong>Mata Kuliah:</strong> Kriptografi</p>
-        <p><strong>Algoritma :</strong> Blowfish</p>
-        <p><strong>Dosen Pengampu:</strong> Heni Rachmawati S.T.,M.T.</p>
-      </div>
-    </section>
+<footer>
+  © 2025 | Cryptography Project
+</footer>
 
-  </main>
+</div>
 
-  <footer class="fade-in">
-    <p>© kelompok2 2025</p>
-  </footer>
-
-  <script type="module" src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
